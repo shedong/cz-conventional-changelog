@@ -96,7 +96,7 @@ module.exports = function (options) {
 
         // Apply breaking change prefix, removing it if already present
         var breaking = answers.breaking.trim();
-        breaking = breaking ? 'BREAKING CHANGE: ' + filterList(breaking.replace(/^BREAKING CHANGE: /, '')) : '';
+        breaking = breaking ? 'BREAKING CHANGE: ' + breaking.replace(/^BREAKING CHANGE: /, '') : '';
         breaking = wrap(breaking, wrapOptions);
 
         var issues = wrap(answers.issues, wrapOptions);
