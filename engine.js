@@ -12,7 +12,7 @@ var filter = function(array) {
 };
 
 function filterList(string){
-  return string.replace(',', '/n')
+  return string.split(',').join('\n')
 }
 
 // This can be any kind of SystemJS compatible module.
