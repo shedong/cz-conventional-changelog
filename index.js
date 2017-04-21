@@ -5,8 +5,3 @@ var types = require('./commitType')
 module.exports = engine({
   types: types
 });
-
-
-
-
-
