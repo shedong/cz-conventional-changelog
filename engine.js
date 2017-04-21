@@ -68,7 +68,7 @@ module.exports = function (options) {
           message: 'List any issues closed by this change:\n'
         }
       ]).then(function(answers) {
-
+        console.log(answers)
         var maxLineWidth = 100;
 
         var wrapOptions = {
