@@ -11,6 +11,10 @@ var filter = function(array) {
   });
 };
 
+function filterList(string){
+  return string.replace(',', '/n')
+}
+
 // This can be any kind of SystemJS compatible module.
 // We use Commonjs here, but ES6 or AMD would do just
 // fine.
@@ -56,6 +60,10 @@ module.exports = function (options) {
           choices: choices
         },{
           type: 'input',
+          name: 'subject',
+          message: 'Write a short, imperative tense description of the change:\n'
+        },{
+          type: 'input',
           name: 'body',
           message: 'Provide a longer description of the change:\n'
         }, {
@@ -81,14 +89,14 @@ module.exports = function (options) {
     
         
         // Hard limit this line
-        var head = answers.type + ': ';
+        var head = (answers.type  + ': ' + answers.subject.trim()).slice(0, maxLineWidth);
 
         // Wrap these lines at 100 characters
         var body = wrap(answers.body, wrapOptions);
 
         // Apply breaking change prefix, removing it if already present
         var breaking = answers.breaking.trim();
-        breaking = breaking ? 'BREAKING CHANGE: ' + breaking.replace(/^BREAKING CHANGE: /, '') : '';
+        breaking = breaking ? 'BREAKING CHANGE: ' + filterList(breaking.replace(/^BREAKING CHANGE: /, '')) : '';
         breaking = wrap(breaking, wrapOptions);
 
         var issues = wrap(answers.issues, wrapOptions);
