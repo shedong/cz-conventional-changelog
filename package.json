@@ -1,6 +1,6 @@
 {
   "name": "@xhs/commit-conventional",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "xhs commit conventional",
   "main": "index.js",
   "scripts": {
