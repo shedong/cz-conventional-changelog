@@ -68,7 +68,6 @@ module.exports = function (options) {
           message: 'List any issues closed by this change:\n'
         }
       ]).then(function(answers) {
-        console.log(answers)
         var maxLineWidth = 100;
 
         var wrapOptions = {
@@ -79,16 +78,10 @@ module.exports = function (options) {
         };
 
         // parentheses are only needed when a scope is present
-        var scope = ''
-        try {
-          scope = answers.scope.trim();
-          scope = scope ? '(' + answers.scope.trim() + ')' : '';
-        }catch(e){
-          console.log(e)
-        }
+    
         
         // Hard limit this line
-        var head = (answers.type + scope + ': ' + answers.subject.trim()).slice(0, maxLineWidth);
+        var head = answers.type + ': ';
 
         // Wrap these lines at 100 characters
         var body = wrap(answers.body, wrapOptions);
