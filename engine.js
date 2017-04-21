@@ -54,15 +54,7 @@ module.exports = function (options) {
           name: 'type',
           message: 'Select the type of change that you\'re committing:',
           choices: choices
-        }, {
-          type: 'input',
-          name: 'scope',
-          message: 'Denote the scope of this change ($location, $browser, $compile, etc.):\n'
-        }, {
-          type: 'input',
-          name: 'subject',
-          message: 'Write a short, imperative tense description of the change:\n'
-        }, {
+        },{
           type: 'input',
           name: 'body',
           message: 'Provide a longer description of the change:\n'
