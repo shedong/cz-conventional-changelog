@@ -79,9 +79,14 @@ module.exports = function (options) {
         };
 
         // parentheses are only needed when a scope is present
-        var scope = answers.scope.trim();
-        scope = scope ? '(' + answers.scope.trim() + ')' : '';
-
+        var scope = ''
+        try {
+          scope = answers.scope.trim();
+          scope = scope ? '(' + answers.scope.trim() + ')' : '';
+        }catch(e){
+          console.log(e)
+        }
+        
         // Hard limit this line
         var head = (answers.type + scope + ': ' + answers.subject.trim()).slice(0, maxLineWidth);
 
